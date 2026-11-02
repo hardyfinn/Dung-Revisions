@@ -1,0 +1,23 @@
+{
+  "slug": "DungRevisions",
+  "name": "Dung Revisions",
+  "version": "2.0.0",
+  "license": "GPL-3.0-or-later",
+  "brand": "Haer",
+  "author": "Haer",
+  "authorEmail": "",
+  "authorUrl": "",
+  "pluginUrl": "",
+  "manualUrl": "",
+  "sourceUrl": "https://github.com/hardyfinn/dung-revisions",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": [
+    {
+      "slug": "DungRevisions",
+      "name": "Dung Revisions",
+      "description": "Clock divider with two OR buses feeding a bidirectional 16-step shift register (Rungler style), with 1-bit, 3-bit and 8-bit outputs and a display of the register, its voltages and every division",
+      "tags": ["Clock modulator", "Logic", "Random", "Sequencer", "Noise"]
+    }
+  ]
+}
