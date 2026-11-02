@@ -406,7 +406,7 @@ struct RungDisplay : Widget {
 		text(args, x0, y, nx, nc, LM, fsS);
 
 		// ---- 8-bit trace ----
-		float ty = y + mm2px(3.2f), th = mm2px(17.f);
+		float ty = y + mm2px(3.2f), th = mm2px(20.f);
 		int v8 = e.value8(), v3 = e.value3();
 		text(args, x0, ty, string::f("8-BIT %3d", v8), C_CV, LM, fsS);
 		text(args, x0 + w, ty, string::f("%.2f V", scaleDac(v8, 255, module->range8)), C_CV, RM, fsS);
@@ -448,7 +448,7 @@ struct RungDisplay : Widget {
 		text(args, x0, gy, "CLOCKS", C_INK, LM, fsS);
 		text(args, x0 + w, gy, "newest >", C_SOFT, RM, fsT);
 		gy += mm2px(1.8f);
-		float labW = mm2px(7.f), rh = mm2px(3.1f);
+		float labW = mm2px(7.f), rh = mm2px(3.6f);
 		float gw = (w - labW) / CLOCK_HISTORY;
 		int cn = e.clockHistCount;
 		for (int r = 0; r < NUM_DIVS + 2; r++) {

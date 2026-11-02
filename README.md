@@ -4,6 +4,8 @@ A VCV Rack module by Haer: a clock divider with two OR buses feeding a
 16-step shift register that can run in either direction (Rungler style),
 with a display that shows what is going on inside.
 
+![Panel preview](docs/panel-preview.png)
+
 - **/2 to /8** outputs, each with a 3-way switch: up sends it to Bus 1, the
   middle sends it nowhere, down sends it to Bus 2.
 - **Bus 1 and Bus 2** OR together whatever is sent to them. Bus 1 also clocks
