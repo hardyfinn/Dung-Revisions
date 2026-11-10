@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FONT_BOLD = os.environ.get("PANEL_FONT_BOLD", "/usr/share/fonts/opentype/inter/Inter-Bold.otf")
 FONT_MED = os.environ.get("PANEL_FONT_MED", "/usr/share/fonts/opentype/inter/Inter-Medium.otf")
 
-W, H = 132.08, 128.5  # 26 HP
+W, H = 142.24, 128.5  # 28 HP
 
 SOIL = "#2F2720"
 SOIL_DARK = "#251F19"
@@ -72,56 +72,56 @@ for i, y in enumerate(range(14, 128, 6)):
 
 # title
 add(text("DUNG REVISIONS", 4.0, 10.6, 4.1, FONT_BOLD, INK, anchor="start", spacing=0.08))
-add(text("divide  /  bus  /  rung", W - 4.0, 10.3, 2.0, FONT_MED, SOFT, anchor="end"))
+add(text("divide  /  bus  /  rung", W - 4.0, 10.3, 2.6, FONT_MED, SOFT, anchor="end"))
 add(text("Haer", W / 2 - 34.0, 126.0, 2.0, FONT_BOLD, SOFT, spacing=0.12))
 
 # display window
-add(f'<rect x="63.4" y="12.4" width="65.2" height="105.2" rx="1.6" fill="{WINDOW}"/>')
+add(f'<rect x="73.4" y="12.4" width="65.2" height="105.2" rx="1.6" fill="{WINDOW}"/>')
 
 # divisions: /8 at the top down to /2
 SW_X, DIV_X, Y0, DY = 6.5, 16.5, 20.0, 12.0
 for r in range(7):
     y = Y0 + r * DY
     ring(DIV_X, y, GATE)
-    add(text(f"/{8 - r}", DIV_X + 5.3, y + 0.8, 2.3, FONT_BOLD, INK, anchor="start"))
-add(text("switch up: bus 1", 12.0, 102.4, 1.45, FONT_MED, GATE))
-add(text("middle: off", 12.0, 104.4, 1.45, FONT_MED, SOFT))
-add(text("down: bus 2", 12.0, 106.4, 1.45, FONT_MED, BUS2))
+    add(text(f"/{8 - r}", DIV_X + 5.3, y + 1.0, 2.9, FONT_BOLD, INK, anchor="start"))
+add(text("up: bus 1", 11.0, 101.0, 2.4, FONT_MED, GATE))
+add(text("mid: off", 11.0, 103.9, 2.4, FONT_MED, SOFT))
+add(text("down: bus 2", 11.0, 106.8, 2.4, FONT_MED, BUS2))
 
 # outputs, top right
-for x, s, c in [(31.0, "Bus 1", GATE), (42.0, "Bus 2", GATE), (53.0, "Noise", CV)]:
+for x, s, c in [(33.0, "Bus 1", GATE), (45.0, "Bus 2", GATE), (57.0, "Noise", CV)]:
     ring(x, 20.0, c)
-    label(s, x, 27.6)
-for x, s, c in [(31.0, "1-Bit", GATE), (42.0, "3-Bit", CV), (53.0, "8-Bit", CV)]:
+    label(s, x, 28.4, 2.9)
+for x, s, c in [(33.0, "1-Bit", GATE), (45.0, "3-Bit", CV), (57.0, "8-Bit", CV)]:
     ring(x, 34.0, c)
-    label(s, x, 41.6)
+    label(s, x, 42.4, 2.9)
 
 # length knob ring labels
-KX, LY = 48.0, 58.0
+KX, LY = 54.0, 58.0
 for i, s in enumerate(["2", "3", "4", "5", "6", "7", "8", "16"]):
     a = math.radians(-150 + 300 * i / 7)
     rl = 12.6
-    add(text(s, KX + rl * math.sin(a), LY - rl * math.cos(a) + 0.7, 2.0, FONT_BOLD, INK))
+    add(text(s, KX + rl * math.sin(a), LY - rl * math.cos(a) + 0.9, 2.6, FONT_BOLD, INK))
 
 # direction / length jacks
-label("Direction", 31.0, 81.4)
-label("Length", KX, 81.4)
-add(text("fwd / rev", 31.0, 63.6, 1.5, FONT_MED, SOFT))
+label("Direction", 35.0, 80.9, 3.2)
+label("Length", KX, 80.9, 3.2)
+add(text("fwd / rev", 35.0, 64.6, 2.4, FONT_MED, SOFT))
 
 # write switch and chance knob
-label("High", 31.0, 86.2, 1.9)
-label("Low", 31.0, 99.4, 1.9)
+label("High", 35.0, 86.4, 2.9)
+label("Low", 35.0, 100.8, 2.9)
 CY = 92.0
 for v, s in [(0.0, "new"), (1.0, "loop")]:
     a = math.radians(-150 + 300 * v)
     r0, r1 = 7.0, 8.0
     add(f'<line x1="{KX + r0 * math.sin(a):.3f}" y1="{CY - r0 * math.cos(a):.3f}" x2="{KX + r1 * math.sin(a):.3f}" '
         f'y2="{CY - r1 * math.cos(a):.3f}" stroke="{SOFT}" stroke-width="0.35"/>')
-    add(text(s, KX + 9.6 * math.sin(a), CY - 9.6 * math.cos(a) + 0.6, 1.6, FONT_MED, SOFT))
+    add(text(s, KX + 9.6 * math.sin(a), CY - 9.6 * math.cos(a) + 1.4, 2.4, FONT_MED, SOFT))
 
 # bottom row inputs
-for x, s in [(10.0, "Clock"), (22.0, "Reset"), (36.0, "Data"), (48.0, "Chance")]:
-    label(s, x, 119.4)
+for x, s in [(10.0, "Clock"), (22.0, "Reset"), (38.0, "Data"), (52.0, "Chance")]:
+    label(s, x, 119.6, 2.9)
 
 svg = (
     f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}mm" height="{H}mm" '
