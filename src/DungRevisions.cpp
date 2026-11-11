@@ -495,7 +495,7 @@ struct RungDisplay : Widget {
 // Positions in mm, matching res/make_panel.py
 static const float SW_X = 6.5f, DIV_X = 16.5f;
 static const float DIV_Y0 = 20.f, DIV_DY = 12.f;
-static const float KNOB_X = 48.f, LEN_Y = 58.f, CHANCE_Y = 92.f;
+static const float KNOB_X = 54.f, LEN_Y = 58.f, CHANCE_Y = 92.f;
 static const float LED_R = 9.6f;
 
 struct DungRevisionsWidget : ModuleWidget {
@@ -507,7 +507,7 @@ struct DungRevisionsWidget : ModuleWidget {
 		addChild(createWidget<ScrewSilver>(Vec(RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 		addChild(createWidget<ScrewSilver>(Vec(box.size.x - 2 * RACK_GRID_WIDTH, RACK_GRID_HEIGHT - RACK_GRID_WIDTH)));
 
-		RungDisplay* d = createWidget<RungDisplay>(mm2px(Vec(64.0, 13.0)));
+		RungDisplay* d = createWidget<RungDisplay>(mm2px(Vec(74.0, 13.0)));
 		d->box.size = mm2px(Vec(64.0, 104.0));
 		d->module = module;
 		addChild(d);
@@ -521,15 +521,15 @@ struct DungRevisionsWidget : ModuleWidget {
 			addChild(createLightCentered<TinyLight<WhiteLight>>(mm2px(Vec(DIV_X + 4.4f, y - 4.4f)), module, DungRevisions::DIV_LIGHT + i));
 		}
 		// outputs top right
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(31.f, 20.f)), module, DungRevisions::BUS1_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(42.f, 20.f)), module, DungRevisions::BUS2_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(53.f, 20.f)), module, DungRevisions::NOISE_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(31.f, 34.f)), module, DungRevisions::BIT1_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(42.f, 34.f)), module, DungRevisions::BIT3_OUTPUT));
-		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(53.f, 34.f)), module, DungRevisions::BIT8_OUTPUT));
-		addChild(createLightCentered<TinyLight<GreenLight>>(mm2px(Vec(35.4f, 15.6f)), module, DungRevisions::BUS1_LIGHT));
-		addChild(createLightCentered<TinyLight<RedLight>>(mm2px(Vec(46.4f, 15.6f)), module, DungRevisions::BUS2_LIGHT));
-		addChild(createLightCentered<TinyLight<WhiteLight>>(mm2px(Vec(35.4f, 29.6f)), module, DungRevisions::BIT1_LIGHT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(33.f, 20.f)), module, DungRevisions::BUS1_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(45.f, 20.f)), module, DungRevisions::BUS2_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(57.f, 20.f)), module, DungRevisions::NOISE_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(33.f, 34.f)), module, DungRevisions::BIT1_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(45.f, 34.f)), module, DungRevisions::BIT3_OUTPUT));
+		addOutput(createOutputCentered<PJ301MPort>(mm2px(Vec(57.f, 34.f)), module, DungRevisions::BIT8_OUTPUT));
+		addChild(createLightCentered<TinyLight<GreenLight>>(mm2px(Vec(37.4f, 15.6f)), module, DungRevisions::BUS1_LIGHT));
+		addChild(createLightCentered<TinyLight<RedLight>>(mm2px(Vec(49.4f, 15.6f)), module, DungRevisions::BUS2_LIGHT));
+		addChild(createLightCentered<TinyLight<WhiteLight>>(mm2px(Vec(37.4f, 29.6f)), module, DungRevisions::BIT1_LIGHT));
 
 		// length knob with its ring of lights
 		addParam(createParamCentered<RoundLargeBlackKnob>(mm2px(Vec(KNOB_X, LEN_Y)), module, DungRevisions::LENGTH_PARAM));
@@ -537,16 +537,16 @@ struct DungRevisionsWidget : ModuleWidget {
 			float a = (-150.f + 300.f * i / (NUM_LENGTHS - 1)) * (float) M_PI / 180.f;
 			addChild(createLightCentered<SmallLight<GreenLight>>(mm2px(Vec(KNOB_X + LED_R * std::sin(a), LEN_Y - LED_R * std::cos(a))), module, DungRevisions::LENGTH_LIGHT + i));
 		}
-		addParam(createLightParamCentered<VCVLightLatch<MediumSimpleLight<WhiteLight>>>(mm2px(Vec(31.f, 58.f)), module, DungRevisions::DIR_PARAM, DungRevisions::DIR_LIGHT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(31.f, 74.f)), module, DungRevisions::DIR_INPUT));
-		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(KNOB_X, 74.f)), module, DungRevisions::LENGTH_INPUT));
+		addParam(createLightParamCentered<VCVLightLatch<MediumSimpleLight<WhiteLight>>>(mm2px(Vec(35.f, 58.f)), module, DungRevisions::DIR_PARAM, DungRevisions::DIR_LIGHT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(35.f, 73.f)), module, DungRevisions::DIR_INPUT));
+		addInput(createInputCentered<PJ301MPort>(mm2px(Vec(KNOB_X, 73.f)), module, DungRevisions::LENGTH_INPUT));
 
-		addParam(createParamCentered<CKSSThree>(mm2px(Vec(31.f, CHANCE_Y)), module, DungRevisions::WRITE_PARAM));
+		addParam(createParamCentered<CKSSThree>(mm2px(Vec(35.f, CHANCE_Y)), module, DungRevisions::WRITE_PARAM));
 		addParam(createParamCentered<RoundLargeBlackKnob>(mm2px(Vec(KNOB_X, CHANCE_Y)), module, DungRevisions::CHANCE_PARAM));
 
 		// bottom row inputs
 		const int ins[4] = {DungRevisions::CLOCK_INPUT, DungRevisions::RESET_INPUT, DungRevisions::DATA_INPUT, DungRevisions::CHANCE_INPUT};
-		const float bx[4] = {10.f, 22.f, 36.f, 48.f};
+		const float bx[4] = {10.f, 22.f, 38.f, 52.f};
 		for (int i = 0; i < 4; i++)
 			addInput(createInputCentered<PJ301MPort>(mm2px(Vec(bx[i], 112.f)), module, ins[i]));
 	}
